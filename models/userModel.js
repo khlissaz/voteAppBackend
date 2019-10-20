@@ -1,6 +1,6 @@
 var mongoose=require('mongoose');
 var bcrypt= require('bcrypt');
-
+var Schema= mongoose.Schema;
 
  var userSchema=new mongoose.Schema(
      { 
@@ -17,7 +17,7 @@ var bcrypt= require('bcrypt');
             type:String,
             required:true
         },
-       
+       sujets: [{type: Schema.Types.ObjectId, ref:'Sujet', default:0}]
      });
 
      // hashing a password before saving it ot the database
