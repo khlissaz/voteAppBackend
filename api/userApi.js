@@ -96,5 +96,13 @@ router.post('/updateUser/:id', function (req, res) {
         res.send(result);
     });
 });
+router.post("/affect/:idUser/:idSujet", function (req, res) {
+    User.findByIdAndUpdate(req.params.idUser, { $push: { sujets: req.params.idSujet } }, function (err, user) {
+        if (err) {
+            throw err;
+        }
+        res.send(user)
+    });
 
+});
 module.exports = router;
